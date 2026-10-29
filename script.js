@@ -54,6 +54,7 @@
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
   const accent = document.querySelector('.accent-word');
+  if (!accent) return;
   accent.innerHTML = [...accent.textContent.trim()].map(c => `<span class="brand-letter">${c}</span>`).join('');
   const mm = gsap.matchMedia();
   mm.add('(min-width:901px) and (prefers-reduced-motion:no-preference)', () => {
@@ -69,9 +70,6 @@
     });
     gsap.utils.toArray('.cutout-visual').forEach(el => {
       gsap.from(el,{opacity:.5,duration:.8,scrollTrigger:{trigger:el,start:'top 95%',once:true}});
-    });
-    gsap.utils.toArray('.urban .card').forEach((el,i) => {
-      gsap.to(el,{y:(i-1)*-45,ease:'none',scrollTrigger:{trigger:'.urban',start:'top bottom',end:'bottom top',scrub:1}});
     });
     // Re-measure after assets load; matchMedia reverts animations on mobile.
     const refresh = () => ScrollTrigger.refresh();

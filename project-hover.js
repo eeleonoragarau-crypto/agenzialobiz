@@ -38,6 +38,8 @@
       button.append(overlay);
       const outgoing = overlay;
       index = next;
+      image.removeAttribute('srcset');
+      image.removeAttribute('sizes');
       image.src = photo.src;
       image.alt = photo.alt;
       animation = outgoing.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 650, easing: 'ease-in-out', fill: 'forwards' });

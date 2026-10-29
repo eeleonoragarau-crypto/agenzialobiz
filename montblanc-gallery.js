@@ -2,9 +2,10 @@ const montblancPhotos = [{"src": "assets/montblanc-gallery/01.jpg.webp", "thumb"
 (() => {
 const dialog=document.getElementById('montblanc-gallery'),open=document.querySelector('.montblanc-gallery-open'),main=dialog.querySelector('.gallery-main'),count=dialog.querySelector('.gallery-count'),thumbs=dialog.querySelector('.gallery-thumbs');
 let index=0,previous,overflow='',startX=null;
-montblancPhotos.forEach((photo,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',`Mostra foto ${i+1}`);const img=document.createElement('img');img.src=photo.thumb;img.alt='';img.loading='lazy';b.append(img);b.addEventListener('click',()=>show(i));thumbs.append(b)});
+let thumbnailsReady=false;
+function initThumbnails(){if(thumbnailsReady)return;thumbnailsReady=true;montblancPhotos.forEach((photo,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',`Mostra foto ${i+1}`);const img=document.createElement('img');img.src=photo.thumb;img.alt='';img.loading='lazy';b.append(img);b.addEventListener('click',()=>show(i));thumbs.append(b)});}
 function show(i){index=(i+montblancPhotos.length)%montblancPhotos.length;const photo=montblancPhotos[index];main.src=photo.src;main.alt=photo.alt;count.textContent=`${String(index+1).padStart(2,'0')} / ${montblancPhotos.length}`;[...thumbs.children].forEach((b,j)=>b.setAttribute('aria-pressed',String(j===index)));const active=thumbs.children[index];thumbs.scrollLeft=active.offsetLeft-thumbs.offsetLeft-thumbs.clientWidth/2+active.clientWidth/2;}
-open.addEventListener('click',()=>{previous=document.activeElement;overflow=document.body.style.overflow;dialog.showModal();document.body.style.overflow='hidden';show(0)});
+open.addEventListener('click',()=>{initThumbnails();previous=document.activeElement;overflow=document.body.style.overflow;dialog.showModal();document.body.style.overflow='hidden';show(0)});
 dialog.querySelector('.gallery-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{document.body.style.overflow=overflow;previous?.focus()});
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
