@@ -1470,3 +1470,65 @@ section[id]{scroll-margin-top:100px}
 .prada-gallery-open{padding:0;border:0;cursor:pointer;text-align:left;font:inherit;color:white}.prada-gallery-open:focus-visible{outline:3px solid #1658d4;outline-offset:6px}
 
 .cutout-visual img.project-fade-layer{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+
+
+/* DOOH section gallery */
+.urban-dooh-gallery{height:76vh;min-height:560px;position:relative}
+.urban-dooh-gallery .card{margin:0;overflow:hidden;background:#fff}
+.urban-dooh-gallery .card img{display:block;width:100%;height:100%;object-fit:cover}
+.urban-dooh-gallery .c1{left:0;top:12%;width:55%;height:48%;transform:rotate(-3deg)}
+.urban-dooh-gallery .c2{right:0;top:2%;width:55%;height:45%;transform:rotate(3deg)}
+.urban-dooh-gallery .c3{left:23%;bottom:0;width:43%;height:48%;transform:rotate(1deg)}
+.urban-copy .urban-subtitle{font-size:clamp(20px,2.2vw,34px);font-weight:800;line-height:1;letter-spacing:-.04em;margin:0 0 24px;text-transform:uppercase}
+@media(max-width:800px){
+ .urban-dooh-gallery{height:auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+ .urban-dooh-gallery .card{position:static;width:100%;height:auto;transform:none!important;border-width:4px}
+ .urban-dooh-gallery .card img{height:auto;aspect-ratio:4/3;object-fit:cover}
+ .urban-dooh-gallery .c3{grid-column:1/-1;width:72%;justify-self:center}
+}
+
+/* Brand credits — quiet monochrome, individual colour reveal */
+.brand-credits{background:#fff;color:#252525;padding:76px 5vw 80px}
+.brand-credits-heading{max-width:1320px;margin:0 auto 38px;border-top:1px solid #e5e5e5;padding-top:26px}
+.brand-credits-heading .kicker{font-size:10px;letter-spacing:.15em;color:#777;margin:0 0 14px}
+.brand-credits-heading h2{font-size:clamp(24px,2.5vw,38px);font-weight:400;letter-spacing:-.035em;margin:0}
+.brand-credits-grid{list-style:none;padding:0;margin:0 auto;max-width:1320px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px 36px;align-items:center}
+.brand-mark{height:90px;display:flex;align-items:center;justify-content:center;min-width:0;outline-offset:7px;border-radius:2px}
+.brand-mark img{display:block;max-width:100%;width:150px;height:66px;overflow:hidden;filter:grayscale(1);opacity:.64;transition:filter .4s ease,opacity .4s ease}
+.brand-mark:hover img,.brand-mark:focus img,.brand-mark:active img{filter:grayscale(0);opacity:1}
+.brand-mark:focus-visible{outline:1px solid #777}
+/* Full-width DOOH photographs */
+#urban-media{grid-template-columns:1fr;gap:38px;min-height:0;padding-top:72px;padding-bottom:80px}
+#urban-media .urban-copy{max-width:850px}
+#urban-media .urban-copy p:last-child{max-width:660px}
+#urban-media .urban-dooh-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;height:auto;min-height:0}
+#urban-media .urban-dooh-gallery .card{position:relative;inset:auto;width:100%;height:auto;transform:none!important;margin:0;border:0;box-shadow:none;overflow:hidden;background:transparent}
+#urban-media .urban-dooh-gallery .card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+#urban-media .urban-dooh-gallery .c3{grid-column:1/-1;width:100%}
+#urban-media .urban-dooh-gallery .c3 img{aspect-ratio:16/9}
+@media(max-width:1000px){.brand-credits-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}.brand-credits{padding:56px 5vw}}
+@media(max-width:600px){.brand-credits-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 18px}.brand-mark{height:72px}.brand-mark img{height:50px}.brand-credits{padding:44px 6vw}.brand-credits-heading{margin-bottom:24px}#urban-media{padding-top:48px;padding-bottom:48px;gap:24px}#urban-media .urban-dooh-gallery{grid-template-columns:1fr;gap:16px}#urban-media .urban-dooh-gallery .card img{aspect-ratio:auto}#urban-media .urban-dooh-gallery .c3{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.brand-mark img{transition:none}}
+
+/* Compact brand section; separate images prevent SVG clipping. */
+.brand-credits{padding:44px 5vw 48px}
+.brand-credits-heading{max-width:1160px;margin-bottom:22px;padding-top:20px}
+.brand-credits-heading h2{font-size:clamp(22px,2vw,28px)}
+.brand-credits-grid{max-width:1160px;gap:18px 28px}
+.brand-credits .brand-mark{height:64px}
+.brand-credits .brand-mark img{display:block;width:112px;height:46px;max-width:100%;object-fit:contain;object-position:center}
+@media(max-width:1000px){.brand-credits{padding:38px 5vw}.brand-credits-grid{gap:16px 24px}}
+@media(max-width:600px){.brand-credits{padding:32px 6vw}.brand-credits-grid{gap:12px 18px}.brand-credits .brand-mark{height:56px}.brand-credits .brand-mark img{width:90px;height:38px}}
+
+/* Aligned brand tiles matching the supplied composition. */
+.brand-credits{background:#f7f6f2;padding:44px 3vw 48px}
+.brand-credits-heading{max-width:1600px}
+.brand-credits-grid{max-width:1600px;grid-template-columns:repeat(7,minmax(0,1fr));gap:24px}
+.brand-credits .brand-mark{height:auto;aspect-ratio:1.85;min-width:0;background:#fff;border:1px solid #e8e8e8;border-radius:3px;padding:15px;transition:border-color .3s ease}
+.brand-credits .brand-mark img{width:100%;height:100%;max-width:100%;max-height:72px;object-fit:contain;filter:grayscale(1);opacity:.8;mix-blend-mode:multiply;transition:filter .35s ease,opacity .35s ease}
+.brand-credits .brand-mark:hover img,.brand-credits .brand-mark:focus img{filter:grayscale(0);opacity:1}
+.brand-credits .brand-mark:hover{border-color:#d4d4d4}
+@media(max-width:1100px){.brand-credits-grid{gap:16px}.brand-credits .brand-mark{padding:10px}}
+@media(max-width:800px){.brand-credits-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.brand-credits .brand-mark{padding:12px}}
+@media(max-width:480px){.brand-credits{padding:30px 5vw}.brand-credits-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.brand-credits .brand-mark{padding:14px}}
+@media(prefers-reduced-motion:reduce){.brand-credits .brand-mark,.brand-credits .brand-mark img{transition:none}}
