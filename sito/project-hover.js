@@ -2,7 +2,7 @@
   const galleries = [
     ['prada', pradaPhotos], ['hublot', hublotPhotos],
     ['montblanc', montblancPhotos], ['mini', miniPhotos],
-    ['sector', sectorPhotos], ['fabs', fabsPhotos],
+    ['sector', sectorPhotos],
     ['lenovo', lenovoPhotos], ['txt', txtPhotos]
   ];
   const hover = matchMedia('(hover: hover) and (pointer: fine)');
